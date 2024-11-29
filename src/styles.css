@@ -1,20 +1,22 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f4f4f9;
-}
-
-h1 {
-    color: #333;
-    text-align: center;
-}
-
-#output {
-    margin-top: 20px;
-}
-
-.reset {
-    margin-top: 20px;
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  
+  body > .container {
+    padding: 60px 15px 0;
+  }
+  
+  code {
+    font-size: 80%;
+  }
+  
+  .data-table {
+    margin-bottom: 6rem;
+    margin-top: 1rem;
+  }
+  .reset { 
     margin-bottom: 20px;
-}
+  }
