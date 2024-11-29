@@ -84,6 +84,7 @@ async function fetchData() {
     });
 
     // create a button to reset the filter
+    document.getElementById("output").innerHTML = "";
     var resetButton = document.createElement("button");
     resetButton.className = "reset btn btn-primary";
     resetButton.type = "button";
@@ -170,10 +171,48 @@ var keyValues = [
   { name: "id", display: "ID", type: "string", format: "toUpper" },
 ];
 
+async function fetchUserInfo() {
+  try {
+    const response = await fetch("/.auth/me");
+    const data = await response.json();
+    const user = data.clientPrincipal;
+
+    if (user) {
+      document.getElementById("username-placeholder").textContent =
+        user.userDetails;
+      // document.getElementById("user-name").textContent = user.userDetails;
+      // const rolesList = document.getElementById("user-roles");
+      // user.userRoles.forEach((role) => {
+      //   const li = document.createElement("li");
+      //   li.textContent = role;
+      //   rolesList.appendChild(li);
+      // });
+    }
+  } catch (error) {
+    console.error("Failed to fetch user info:", error);
+  }
+}
+
+// Initialize
+fetchUserInfo();
+
 // Get URL parampulators
-var params = getUrlVars();
-let serviceName = params["service"];
-document.getElementById("service-heading").innerText =
-  serviceName.toUpperCase();
-// TODO: if no service is given then display a form to enter the service name (lookup if possible)
-fetchData();
+// var params = getUrlVars();
+// let serviceName = params["service"];
+// document.getElementById("service-heading").innerText =
+//   serviceName.toUpperCase();
+// // TODO: if no service is given then display a form to enter the service name (lookup if possible)
+// fetchData();
+
+function load() {
+  const selectedService = document.getElementById("service-dropdown").value;
+  if (selectedService !== "Select a service") {
+    document.getElementById("output").innerHTML = "Loading...";
+    serviceName = selectedService;
+    document.getElementById("service-heading").innerText =
+      serviceName.toUpperCase();
+    fetchData();
+  } else {
+    alert("Please select a service.");
+  }
+}

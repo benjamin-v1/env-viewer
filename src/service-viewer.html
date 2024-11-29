@@ -46,17 +46,31 @@
 
         <a class="navbar-brand" href="#">Service Viewer</a>
         <div class="ml-auto">
-          <span class="navbar-text">
-            <a href="/login">login</a>
+          <span class="navbar-text"
+            >Welcome, <span id="username-placeholder">[Username]</span> |
+            <a href="/logout">logout</a>
           </span>
         </div>
       </nav>
     </header>
     <main role="main" class="container">
       <h1 id="service-heading" class="text-center display-4">
-        Welcome, you must <a href="/.auth/login/aad">login</a> to view a
-        <a href="/service">service</a>.
+        Select a service
       </h1>
+      <div class="text-center my-4">
+        <select id="service-dropdown" class="custom-select w-50">
+          <option selected>Select a service</option>
+          <option value="ddd">DDD</option>
+          <option value="tla">TLA</option>
+        </select>
+      </div>
+      <div class="text-center my-4">
+        <button id="load-button" class="btn btn-primary" onclick="load()">
+          Load
+        </button>
+      </div>
+      <div id="output"></div>
+      <script src="scripts/script.js"></script>
     </main>
   </body>
 </html>

@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Environment Viewer</title>
-    <link rel="stylesheet" href="css/theme.bootstrap_4.min.css" />
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="theme.bootstrap_4.min.css" />
+    <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
@@ -45,18 +45,14 @@
         </svg>
 
         <a class="navbar-brand" href="#">Service Viewer</a>
-        <div class="ml-auto">
-          <span class="navbar-text">
-            <a href="/login">login</a>
-          </span>
-        </div>
       </nav>
     </header>
     <main role="main" class="container">
       <h1 id="service-heading" class="text-center display-4">
-        Welcome, you must <a href="/.auth/login/aad">login</a> to view a
-        <a href="/service">service</a>.
+        Sorry, this was not found
       </h1>
+      <div id="output"></div>
+      <script src="script.js"></script>
     </main>
   </body>
 </html>

@@ -1,0 +1,46 @@
+{
+    "trailingSlash": "auto",
+    "routes": [
+        {
+            "route": "/service*",
+            "rewrite": "/service-viewer.html",
+            "allowedRoles": [
+                "authenticated"
+            ]
+        },
+        {
+            "route": "/css/*"
+        },
+        {
+            "route": "/scripts/*"
+        },
+        {
+            "route": "/.auth/me"
+        },
+        {
+            "route": "/login",
+            "rewrite": "/.auth/login/aad"
+        },
+        {
+            "route": "/logout",
+            "rewrite": "/.auth/logout"
+        },
+        {
+            "route": "/api/*"
+        }
+    ],
+    "navigationFallback": {
+        "rewrite": "index.html",
+        "exclude": [
+            "/images/*.{png,jpg,gif}",
+            "/css/*",
+            "/scripts/*"
+        ]
+    },
+    "responseOverrides": {
+        "401": {
+            "statusCode": 302,
+            "redirect": "/.auth/login/aad"
+        }
+    }
+}
