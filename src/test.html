@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title>Auth Test</title>
+</head>
+<body>
+  <h1>Azure Static Web App Auth Test</h1>
+  <pre id="user"></pre>
+  <script>
+    fetch('/.auth/me')
+      .then(res => res.json())
+      .then(data => {
+        const user = data[0]?.clientPrincipal;
+        if (user) {
+          document.getElementById('user').textContent = JSON.stringify(user, null, 2);
+        } else {
+          document.getElementById('user').textContent = 'Not logged in';
+        }
+      });
+  </script>
+</body>
+</html>
